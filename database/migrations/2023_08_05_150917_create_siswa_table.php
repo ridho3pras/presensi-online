@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('siswa', function (Blueprint $table) {
             $table->id();
+            $table->string('nis')->unique();
             $table->string('name');
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->string('role_id');  // 1 = admin, 2 = user
-            $table->rememberToken();
+            $table->string('jk');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('siswa');
     }
 };
